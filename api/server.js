@@ -1,11 +1,13 @@
 const express = require("express");
-// const Router = require("");
+const projectsRouter = require("../projects/projectsRouter");
+const resourcesRouter = require("../resources/resourcesRouter");
 
 const server = express();
 
 server.use(express.json());
 
-// server.use("/api/Router", Router);
+server.use("/api/projects", projectsRouter);
+server.use("/api/resources", resourcesRouter);
 
 server.get("/", (req, res) => {
 	res.json({ message: "api running" });
